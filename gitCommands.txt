@@ -1,0 +1,31 @@
+git checkout -f develop
+git status
+git branch --list
+git branch
+git add .
+git commit -m "commit message"
+git push origin FB-Name
+git --exec-path
+git --version
+to remove a particular file do - git rm Helloworld.txt(just give the file name)
+to rename a existing branch(i.e working copy) do - git branch -m <desiredbranchName>    
+for suppose we have a working copy name as "files" and you want to rename it as CQ5File then follow the below example 
+eg: git branch -m CQ5File
+                         or 
+to rename a exisiting branch working copy do - git branch -m <existing branchName> <desiredbranchName>
+for suppose we have a working copy name as "files" and you want to rename it as "CQ5File" then follow the below example 
+eg: git branch -m files CQ5File
+
+I mistakenly added files using the command
+git add file
+I have not yet run git commit. Is there a way to undo this or remove these files from the commit?
+
+eg: You have added a single file using ---   git add <filename>  
+
+and now you want to undo this single file from the commit.In this case just do ---  git reset <filename>
+
+you have added a multiple files using command ---    git add .
+and now you want undo these files from the commit --- git reset
+
+
+/content/aarp/en/home/benefits-discounts/services_discounts_list
