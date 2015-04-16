@@ -1,3 +1,14 @@
+git checkout -f head
+git status
+git branch --list
+git branch
+git add .
+git commit -m "commit message"
+git push origin FB-Name
+git --exec-path
+git --version
+
+/content/aarp/en/home/benefits-discounts/services_discounts_list
 git checkout -f develop
 git status
 git branch --list
@@ -20,12 +31,68 @@ I mistakenly added files using the command
 git add file
 I have not yet run git commit. Is there a way to undo this or remove these files from the commit?
 
-eg: You have added a single file using ---   git add <filename>  
+eg: You have added a file using ---   git add <filename>  
 
-and now you want to undo this single file from the commit.In this case just do ---  git reset <filename>
+and now you want to undo these files from the commit.In this case just do ---  git reset <filename>
 
-you have added a multiple files using command ---    git add .
-and now you want undo these files from the commit --- git reset
+to delete a local branch say 'PROD-15336' -- do
+c:\users\sgadde\New-stashGit\cq: git branch -d PROD-15336
 
+To know what branches are existing on remote repository - do
+c:\users\sgadde\New-stashGit\cq: git branch -r
+
+To know what branches are existing on both local and remote repository - do
+c:\users\sgadde\New-stashGit\cq: git branch -a
+There’s also another way to do figure out what branches are on your remote by actually using the remote related commands, 'git remote' and 'git ls-remote'
+
+c:\users\sgadde\New-stashGit\cq:git remote
+output : origin
+
+c:\users\sgadde\New-stashGit\cq:git ls-remote
+output :
+Password for 'https://sgadde@admin-d.aarp.org':
+From https://sgadde@admin-d.aarp.org/stash/scm/cms/cq.git
+1184d1b9ec27bba4c65380b6a092c16495e1e250        HEAD
+7e7431816af39244929b643231f2e77b1ca6b22b        refs/heads/PROD-10632
+97ee590213e3a326c2714eb1c571a0b15fbe017f        refs/heads/PROD-15828
+351ee13e7fd590da4f937b9da634fea66309e29f        refs/heads/PROD-15862
+f83a64b4e37dc0e4e15a96bdcfb8975880532232        refs/heads/PROD-15881
+feab3ef654f57e2aff8b49c35281463ed33b2d2d        refs/heads/PROD-15963
+b13b45961a8d5b9ddc0baeca8d9560c210995ad1        refs/heads/PROD-15985
+52cca97b62ae07a83001cb8677d11f6f5f2a80e5        refs/heads/PROD-16012
+10cd35ae1476396615e94ccdaab534ff043d344c        refs/heads/PROD-16062
+c107d3d7eef4429b710b31bfbee26849bbf4c407        refs/heads/PROD-16064
+0280a90e62330a3fb75bdc6f96150e9bfd65a79c        refs/heads/PROD-16136
+eb237bd201800ba74b9e8b090405a56e3bf3c1e2        refs/heads/aem6
+1184d1b9ec27bba4c65380b6a092c16495e1e250        refs/heads/develop
+34352fb5e6a438c83338ca48fb672bfd90729a1b        refs/heads/hotfix/2015_4.1
+ade93413408f537357dd6a1d4b6c237db65ce4b9        refs/heads/master
+24a86340d2bb42f146f20b6548a6aef0607df998        refs/heads/newtextimage
+724f01daf7ecf1034af783a3300e050176067ff7        refs/heads/release/2015_5.0
+
+
+
+
+to switch on to develop : 
+c:\users\sgadde\New-stashGit\cq: git config gitProcess.integrationBranch develop
+c:\users\sgadde\New-stashGit\cq: git checkout develop
+
+to switch on to release branch from develop, say your release branch is release/2015_5.0
+c:\users\sgadde\New-stashGit\cq: git config gitProcess.integrationBranch release/2015_5.0
+and then do 
+c:\users\sgadde\New-stashGit\cq: git checkout release/2015_5.0
+if you see this error pathsec 'release/2015_5.0' did not match any files known to git
+in this case try
+c:\users\sgadde\New-stashGit\cq: git fetch --all
+it fetches all the origin branches
+then try
+c:\users\sgadde\New-stashGit\cq:git checkout release/2015_5.0
+then you should be able to checkout your release branch
+
+try running gitk in the command line and it pops up graph view of all commits
+c:\users\sgadde\New-stashGit\cq:gitk
+c:\users\sgadde\New-stashGit\cq: git log
+to come out of log mode press 'q' button and it will take you out of the log mode
+if you want to check the logs like commits -do 
 
 /content/aarp/en/home/benefits-discounts/services_discounts_list
